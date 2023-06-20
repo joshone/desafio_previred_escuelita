@@ -33,6 +33,7 @@ Mucha suerte y danos tú mejor esfuerzo.
 
 ## Entrega solcuión
 
-+ La solución debe ser enviada vía un pull request a este repositorio.
++ La solución debe ser enviada vía un pull request a este repositorio "crea un Fork antes".
++ Dudas sobre el ejercicio a escueladetalentosti@previred.com
 
 NOTA: Todos los pull request serán rechazados, esto no quiere decir que ha sido rechazada la solución, sino que es una forma de que otros postulantes no copien tu código.
