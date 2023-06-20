@@ -23,7 +23,7 @@ Mucha suerte y danos tú mejor esfuerzo.
 ### Requisitos (Excluyente para el cupo) 📋
 
 ```
--> Se debe implementar la solución en Spring Boot, JPA, Hibernate, Maven.
+-> Se debe implementar la solución en Spring Boot, JPA/Hibernate, Maven.
 -> Debes comentar tu código (Busca formas de buenas prácticas de SONAR).
 -> El código debe ser escrito en Inglés/Español.
 -> La solución debe contener un README.md con las instrucciones para compilar e instalar.
