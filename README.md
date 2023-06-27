@@ -25,7 +25,7 @@ Mucha suerte y danos tú mejor esfuerzo.
 ```
 -> Se debe implementar la solución en Spring Boot, JPA/Hibernate, Maven.
 -> Debes comentar tu código (Busca formas de buenas prácticas de SONAR).
--> El código debe ser escrito en Inglés/Español.
+-> El código debe ser escrito en Inglés o Español.
 -> La solución debe contener un README.md con las instrucciones para compilar e instalar.
 -> Hay bonus si usas SWAGGER (Opcional, no excluyente).
 -> Enviar una copia Email a escueladetalentosti@previred.com y colocar en ASUNTO: "Postulación desafío ESCUELITA". Para confirmar la finalización de la tarea y revisión.
