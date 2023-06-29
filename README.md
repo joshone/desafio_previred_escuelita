@@ -31,7 +31,7 @@ Mucha suerte y danos tú mejor esfuerzo.
 -> Enviar una copia Email a escueladetalentosti@previred.com y colocar en ASUNTO: "Postulación desafío ESCUELITA". Para confirmar la finalización de la tarea y revisión.
 ```
 
-## Entrega solcuión
+## Entrega solución
 
 + La solución debe ser enviada vía un pull request a este repositorio "crea un Fork antes".
 + Dudas sobre el ejercicio a escueladetalentosti@previred.com
