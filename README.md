@@ -7,7 +7,7 @@ _La jerarquía de carpetas del proyecto debe respetar lo siguiente._
 ```
 	-RAÍZ
 		-> fuentes - Deja todo el código fuente del ejercicio.
-		-> script - Script de insersión de schemas, tablas y data base del ejercicio.
+		-> script - Script de inserción de schemas, tablas y data base del ejercicio.
 ```
 
 ## Instrucciones del ejercicio
