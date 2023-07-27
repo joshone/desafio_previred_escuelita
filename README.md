@@ -1,4 +1,4 @@
-# DESAFIO ESCUELITA PREVIRED
+# DESAFIO PREVIRED
 
 ## Comenzando 🚀
 
@@ -11,7 +11,6 @@ _La jerarquía de carpetas del proyecto debe respetar lo siguiente._
 ```
 
 ## Instrucciones del ejercicio
-
 El portal privado de PREVIRED ha decidido crear un nuevo módulo para sus clientes en empresas. Es por esto que se le ha solicitado al nuevo Desarrollador crear servicios Rest que permitan registrar la información de la(s) Empresa(s) con sus trabajadores activos asociados y su respectivo FRONTEND.
 
 ## Backend:
@@ -23,7 +22,7 @@ Como el producto es nuevo, deberás crear tu solución para una base de datos Po
 
 Requisito: Recordar que si eliminas una empresa debes eliminar el/los client(es).
 
-## FRONT 
+## Frontend:  
 El lenguaje puede ser cualquiera (se creativo), debe contener lo siguiente:
 - La utilización de cada endpoint que generaste para el CRUD del backend.
 - Registros tabulados de la empresa con sus respectivos trabajadores y acciones correspondientes.
