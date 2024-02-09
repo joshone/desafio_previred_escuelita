@@ -37,13 +37,10 @@ Mucha suerte y danos tú mejor esfuerzo.
 -> El código debe ser escrito en Inglés o Español (NO AMBAS).
 -> La solución debe contener un README.md con las instrucciones para compilar e instalar.
 -> Hay bonus si usas SWAGGER (Opcional, no excluyente).
--> Enviar una copia Email a escueladetalentosti@previred.com y colocar en ASUNTO: "Postulación desafío PREVIRED". Para confirmar la finalización de la tarea y revisión.
--> Test unitarios en las secciones que estimes convenientes
 ```
 
 ## Entrega solución
 
-+ La solución debe ser enviada vía un pull request a este repositorio "crea un Fork antes".
-+ Dudas sobre el ejercicio a escueladetalentosti@previred.com
++ Sube tú código fuente a tu propio Github y envianos vía email el link público de tu solución.
++ Dudas sobre el ejercicio a yperez@previred.com ; rortiz@previred.com
 
-NOTA: Todos los pull request serán rechazados, esto no quiere decir que ha sido rechazada la solución, sino que es una forma de que otros postulantes no copien tu código.
