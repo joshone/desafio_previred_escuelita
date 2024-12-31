@@ -15,12 +15,24 @@ import {
 } from '@mui/material'
 import { KeyboardArrowDown, KeyboardArrowUp } from '@mui/icons-material'
 
-export default function CollapsibleRow({ empresa, onEditEmpresa, onEditTrabajador }) {
+export default function CollapsibleRow({
+  empresa,
+  onEditEmpresa,
+  onEditTrabajador,
+  onDeleteEmpresa,
+  onDeleteTrabajador
+}) {
   const [open, setOpen] = useState(false)
 
   const handleEditEmpresaClick = () => {
     if (onEditEmpresa) {
       onEditEmpresa(empresa)
+    }
+  }
+
+  const handleDeleteEmpresaClick = () => {
+    if (onDeleteEmpresa) {
+      onDeleteEmpresa(empresa)
     }
   }
 
@@ -30,9 +42,14 @@ export default function CollapsibleRow({ empresa, onEditEmpresa, onEditTrabajado
     }
   }
 
+  const handleDeleteTrabajadorClick = (trabajador) => {
+    if (onDeleteTrabajador) {
+      onDeleteTrabajador(trabajador, empresa)
+    }
+  }
+
   return (
     <>
-      {/* Fila principal empresas */}
       <TableRow>
         <TableCell>
           <IconButton
@@ -55,13 +72,21 @@ export default function CollapsibleRow({ empresa, onEditEmpresa, onEditTrabajado
             variant='outlined'
             color='primary'
             onClick={handleEditEmpresaClick}
+            sx={{ mr: 1 }}
           >
             Editar
+          </Button>
+
+          <Button
+            variant='outlined'
+            color='error'
+            onClick={handleDeleteEmpresaClick}
+          >
+            Eliminar
           </Button>
         </TableCell>
       </TableRow>
 
-      {/* Fila colapsable (trabajadores) */}
       <TableRow>
         <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={5}>
           <Collapse in={open} timeout='auto' unmountOnExit>
@@ -93,8 +118,17 @@ export default function CollapsibleRow({ empresa, onEditEmpresa, onEditTrabajado
                           variant='outlined'
                           color='secondary'
                           onClick={() => handleEditTrabajadorClick(t)}
+                          sx={{ mr: 1 }}
                         >
                           Editar
+                        </Button>
+
+                        <Button
+                          variant='outlined'
+                          color='error'
+                          onClick={() => handleDeleteTrabajadorClick(t)}
+                        >
+                          Eliminar
                         </Button>
                       </MUITableCell>
                     </MUITableRow>

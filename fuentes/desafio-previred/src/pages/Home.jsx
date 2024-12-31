@@ -39,6 +39,26 @@ export default function Home() {
     alert(`Editar trabajador: ${trabajador.rut} (Empresa: ${empresa.rut})`)
   }
 
+  const handleDeleteEmpresa = async (empresa) => {
+    console.log('Eliminar empresa:', empresa)
+
+    if (!window.confirm(`¿Seguro deseas eliminar la empresa ${empresa.rut}?`)) {
+      return
+    }
+
+    try {
+      await axios.delete(`http://localhost:8090/v1/empresas/${empresa.uid}`)
+
+      alert(`Empresa eliminada: ${empresa.rut}`)
+      const nuevaLista = empresas.filter(e => e.id !== empresa.id)
+      setEmpresas(nuevaLista)
+
+    } catch (error) {
+      console.error('Error al eliminar empresa:', error)
+      alert('Ocurrió un error al eliminar la empresa')
+    }
+  }
+
   return (
     <Box sx={{ p: 2 }}>
       <Typography variant='h5' gutterBottom>
@@ -66,6 +86,7 @@ export default function Home() {
                 empresa={empresa}
                 onEditEmpresa={handleEditEmpresa}
                 onEditTrabajador={handleEditTrabajador}
+                onDeleteEmpresa={handleDeleteEmpresa}
               />
             ))}
           </TableBody>
