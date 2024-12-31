@@ -44,6 +44,14 @@ public class TrabajadorEntity {
         this.trabajadorId = trabajadorId;
     }
 
+    public UUID getUid() {
+        return uid;
+    }
+
+    public void setUid(UUID uid) {
+        this.uid = uid;
+    }
+
     public String getRut() {
         return rut;
     }
@@ -82,6 +90,14 @@ public class TrabajadorEntity {
 
     public void setDireccion(String direccion) {
         this.direccion = direccion;
+    }
+
+    public StatusEnum getStatus() {
+        return status;
+    }
+
+    public void setStatus(StatusEnum status) {
+        this.status = status;
     }
 
     public EmpresaEntity getEmpresa() {

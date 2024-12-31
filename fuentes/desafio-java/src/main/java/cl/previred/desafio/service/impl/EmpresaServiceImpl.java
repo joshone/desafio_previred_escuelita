@@ -9,6 +9,7 @@ import cl.previred.desafio.model.EmpresaModel;
 import cl.previred.desafio.model.TrabajadorModel;
 import cl.previred.desafio.repository.EmpresaRepository;
 import cl.previred.desafio.service.EmpresaService;
+import cl.previred.desafio.status.StatusEnum;
 import cl.previred.desafio.util.EntityUtilities;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -58,12 +59,6 @@ public class EmpresaServiceImpl implements EmpresaService {
     }
 
     @Override
-    public boolean deleteEmpresa(EmpresaModel empresaModel) {
-        // por lo general no borro, actualizo el status
-        return false;
-    }
-
-    @Override
     public EmpresaModel findEmpresa(String uid) throws EmpresaNotFoundException {
 
         EmpresaEntity empresaEntity = empresaRepository.findByUid(UUID.fromString(uid));
@@ -110,5 +105,17 @@ public class EmpresaServiceImpl implements EmpresaService {
                     return empresaModel;
                 })
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public void deleteEmpresa(String uid) throws EmpresaNotFoundException {
+        EmpresaEntity empresaEntity = empresaRepository.findByUid(UUID.fromString(uid));
+
+        if (empresaEntity == null) {
+            throw new EmpresaNotFoundException("Empresa no encontrada");
+        }
+
+        empresaEntity.setStatus(StatusEnum.DELETED);
+        empresaRepository.save(empresaEntity);
     }
 }

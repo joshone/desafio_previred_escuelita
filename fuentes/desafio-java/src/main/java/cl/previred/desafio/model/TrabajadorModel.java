@@ -1,23 +1,26 @@
 package cl.previred.desafio.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import java.util.UUID;
 
 public class TrabajadorModel {
 
+    @JsonProperty("rut")
     private String rut;
+    @JsonProperty("uid")
+    private UUID uid;
+    @JsonProperty("nombre")
     private String nombre;
+    @JsonProperty("apellido_paterno")
     private String apellidoPaterno;
+    @JsonProperty("apellido_materno")
     private String apellidoMaterno;
+    @JsonProperty("direccion")
     private String direccion;
+    @JsonProperty("empresa_uid")
+    private String empresaUid;
 
     public TrabajadorModel() {
-    }
-
-    public TrabajadorModel(String rut, String nombre, String apellidoPaterno, String apellidoMaterno, String direccion) {
-        this.rut = rut;
-        this.nombre = nombre;
-        this.apellidoPaterno = apellidoPaterno;
-        this.apellidoMaterno = apellidoMaterno;
-        this.direccion = direccion;
     }
 
     public String getRut() {
@@ -26,6 +29,14 @@ public class TrabajadorModel {
 
     public void setRut(String rut) {
         this.rut = rut;
+    }
+
+    public UUID getUid() {
+        return uid;
+    }
+
+    public void setUid(UUID uid) {
+        this.uid = uid;
     }
 
     public String getNombre() {
@@ -60,14 +71,24 @@ public class TrabajadorModel {
         this.direccion = direccion;
     }
 
+    public String getEmpresaUid() {
+        return empresaUid;
+    }
+
+    public void setEmpresaUid(String empresaUid) {
+        this.empresaUid = empresaUid;
+    }
+
     @Override
     public String toString() {
         return "TrabajadorModel{" +
                 "rut='" + rut + '\'' +
+                ", uid=" + uid +
                 ", nombre='" + nombre + '\'' +
                 ", apellidoPaterno='" + apellidoPaterno + '\'' +
                 ", apellidoMaterno='" + apellidoMaterno + '\'' +
                 ", direccion='" + direccion + '\'' +
+                ", empresaUid='" + empresaUid + '\'' +
                 '}';
     }
 }

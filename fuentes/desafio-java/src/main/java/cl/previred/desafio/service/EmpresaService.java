@@ -11,7 +11,7 @@ public interface EmpresaService {
 
     EmpresaModel createEmpresa(EmpresaModel empresaModel) throws EmpresaAlreadyExistException;
     EmpresaModel updateEmpresa(EmpresaModel empresaModel) throws EmpresaNotModifiedException, EmpresaNotFoundException;
-    boolean deleteEmpresa(EmpresaModel empresaModel);
     EmpresaModel findEmpresa(String empresaId) throws EmpresaNotFoundException;
     List<EmpresaModel> getAllEmpresas();
+    void deleteEmpresa(String uid) throws EmpresaNotFoundException;
 }

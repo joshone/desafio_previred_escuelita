@@ -4,6 +4,7 @@ import cl.previred.desafio.controller.dto.BaseResponseDto;
 import cl.previred.desafio.controller.dto.ResultCodeDto;
 import cl.previred.desafio.exception.EmpresaAlreadyExistException;
 import cl.previred.desafio.exception.EmpresaNotFoundException;
+import cl.previred.desafio.exception.EmpresaNotModifiedException;
 import cl.previred.desafio.model.EmpresaModel;
 import cl.previred.desafio.service.EmpresaService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -42,6 +43,15 @@ public class EmpresaController {
                 empresaService.createEmpresa(empresaModel));
     }
 
+    @Operation(summary = "Actualiza una empresa")
+    @PutMapping(value = "/update", produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseStatus(HttpStatus.CREATED)
+    public BaseResponseDto<EmpresaModel> updateEmpresa(@RequestBody EmpresaModel empresaModel) throws EmpresaNotModifiedException, EmpresaNotFoundException {
+        return new BaseResponseDto(ResultCodeDto.SUCCESS,
+                "Servicio ejecutado correctamente",
+                empresaService.updateEmpresa(empresaModel));
+    }
+
     @Operation(summary = "Busca una empresa con su UID")
     @GetMapping(value = "/{empresaId}", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.OK)
@@ -50,5 +60,16 @@ public class EmpresaController {
         return new BaseResponseDto<>(ResultCodeDto.SUCCESS,
                 "Servicio ejecutado correctamente",
                 empresaService.findEmpresa(uid));
+    }
+
+    @Operation(summary = "Desactiva una empresa con su UID")
+    @DeleteMapping(value = "/{uid}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseStatus(HttpStatus.OK)
+    public BaseResponseDto<Void> deleteEmpresa(@PathVariable String uid) throws EmpresaNotFoundException {
+
+        empresaService.deleteEmpresa(uid);
+        return new BaseResponseDto<>(ResultCodeDto.SUCCESS,
+                "Servicio ejecutado correctamente",
+                null);
     }
 }

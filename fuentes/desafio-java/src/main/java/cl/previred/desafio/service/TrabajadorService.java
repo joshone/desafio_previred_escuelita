@@ -8,8 +8,9 @@ import java.util.List;
 
 public interface TrabajadorService {
     List<TrabajadorModel> getAll();
+    TrabajadorModel search(String uid) throws TrabajadorNotFoundException;
     List<TrabajadorModel> getTrabajador(TrabajadorModel trabajadorModel);
-    boolean deleteTTrabajador(TrabajadorModel trabajadorModel);
+    void deleteTrabajador(String uid) throws TrabajadorNotFoundException;
     TrabajadorModel updateTrabajador(TrabajadorModel trabajadorModel) throws TrabajadorNotFoundException;
     TrabajadorModel create(TrabajadorModel trabajadorModel) throws TrabajadorNotFoundException, TrabajadorNotCreatedException;
 }
