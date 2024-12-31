@@ -1,9 +1,11 @@
 package cl.previred.desafio.service.impl;
 
+import cl.previred.desafio.entity.EmpresaEntity;
 import cl.previred.desafio.entity.TrabajadorEntity;
 import cl.previred.desafio.exception.TrabajadorNotCreatedException;
 import cl.previred.desafio.exception.TrabajadorNotFoundException;
 import cl.previred.desafio.model.TrabajadorModel;
+import cl.previred.desafio.repository.EmpresaRepository;
 import cl.previred.desafio.repository.TrabajadorRepository;
 import cl.previred.desafio.service.TrabajadorService;
 import cl.previred.desafio.status.StatusEnum;
@@ -20,6 +22,9 @@ public class TrabajadorServiceImpl implements TrabajadorService {
 
     @Autowired
     private TrabajadorRepository trabajadorRepository;
+
+    @Autowired
+    private EmpresaRepository empresaRepository;
 
     @Override
     public List<TrabajadorModel> getAll() {
@@ -97,7 +102,14 @@ public class TrabajadorServiceImpl implements TrabajadorService {
         if(trabajadorExist.isEmpty()) {
             throw new TrabajadorNotFoundException("Trabajador no encontrado");
         }
+
         try {
+
+            if(!trabajadorModel.getEmpresaUid().isEmpty()) {
+                EmpresaEntity empresaEntity = empresaRepository.findByUid(UUID.fromString(trabajadorModel.getEmpresaUid()));
+                trabajadorToCreate.setEmpresa(empresaEntity);
+            }
+
             trabajadorToCreate = trabajadorRepository.save(trabajadorToCreate);
         } catch (Exception e) {
             throw new TrabajadorNotCreatedException("No fue posible crear el trabajador");

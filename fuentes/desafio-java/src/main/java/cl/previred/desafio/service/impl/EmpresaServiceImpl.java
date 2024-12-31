@@ -92,10 +92,12 @@ public class EmpresaServiceImpl implements EmpresaService {
                                 .map(t -> {
                                     TrabajadorModel trabajadorModel = new TrabajadorModel();
                                     trabajadorModel.setRut(t.getRut());
+                                    trabajadorModel.setUid(t.getUid());
                                     trabajadorModel.setApellidoPaterno(t.getApellidoPaterno());
                                     trabajadorModel.setApellidoMaterno(t.getApellidoMaterno());
                                     trabajadorModel.setNombre(t.getNombre());
                                     trabajadorModel.setDireccion(t.getDireccion());
+                                    trabajadorModel.setStatus(t.getStatus());
 
                                     return trabajadorModel;
                                 }).collect(Collectors.toList());

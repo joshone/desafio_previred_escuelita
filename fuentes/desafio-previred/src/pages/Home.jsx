@@ -59,6 +59,36 @@ export default function Home() {
     }
   }
 
+  const handleDeleteTrabajador = async (trabajador, empresa) => {
+    console.log('Eliminar trabajador:', trabajador, 'de la empresa:', empresa)
+
+    if (!window.confirm(`¿Seguro deseas eliminar al trabajador ${trabajador.rut}?`)) {
+      return
+    }
+
+    try {
+      await axios.delete(`http://localhost:8090/v1/trabajador/${trabajador.uid}`)
+
+      alert(`Trabajador ${trabajador.rut} eliminado correctamente`)
+
+      const nuevasEmpresas = empresas.map(e => {
+        if (e.id === empresa.id) {
+          return {
+            ...e,
+            trabajadores: e.trabajadores.filter(t => t.id !== trabajador.id)
+          }
+        }
+        return e
+      })
+
+      setEmpresas(nuevasEmpresas)
+
+    } catch (error) {
+      console.error('Error al eliminar trabajador:', error)
+      alert('Ocurrió un error al eliminar el trabajador')
+    }
+  }
+
   return (
     <Box sx={{ p: 2 }}>
       <Typography variant='h5' gutterBottom>
@@ -87,6 +117,7 @@ export default function Home() {
                 onEditEmpresa={handleEditEmpresa}
                 onEditTrabajador={handleEditTrabajador}
                 onDeleteEmpresa={handleDeleteEmpresa}
+                onDeleteTrabajador={handleDeleteTrabajador}
               />
             ))}
           </TableBody>

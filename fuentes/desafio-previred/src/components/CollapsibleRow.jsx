@@ -98,6 +98,7 @@ export default function CollapsibleRow({
                 <TableHead>
                   <MUITableRow>
                     <MUITableCell>RUT</MUITableCell>
+                    <MUITableCell>UID</MUITableCell>
                     <MUITableCell>Nombre</MUITableCell>
                     <MUITableCell>Apellidos</MUITableCell>
                     <MUITableCell>Dirección</MUITableCell>
@@ -108,9 +109,10 @@ export default function CollapsibleRow({
                   {empresa.trabajadores?.map((t, idx) => (
                     <MUITableRow key={idx}>
                       <MUITableCell>{t.rut}</MUITableCell>
+                      <MUITableCell>{t.uid}</MUITableCell>
                       <MUITableCell>{t.nombre}</MUITableCell>
                       <MUITableCell>
-                        {t.apellidoPaterno} {t.apellidoMaterno}
+                        {t.apellido_paterno} {t.apellido_materno}
                       </MUITableCell>
                       <MUITableCell>{t.direccion}</MUITableCell>
                       <MUITableCell>

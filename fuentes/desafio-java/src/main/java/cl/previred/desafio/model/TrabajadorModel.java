@@ -1,5 +1,6 @@
 package cl.previred.desafio.model;
 
+import cl.previred.desafio.status.StatusEnum;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.UUID;
 
@@ -19,6 +20,8 @@ public class TrabajadorModel {
     private String direccion;
     @JsonProperty("empresa_uid")
     private String empresaUid;
+    @JsonProperty("status")
+    private StatusEnum status;
 
     public TrabajadorModel() {
     }
@@ -79,6 +82,14 @@ public class TrabajadorModel {
         this.empresaUid = empresaUid;
     }
 
+    public StatusEnum getStatus() {
+        return status;
+    }
+
+    public void setStatus(StatusEnum status) {
+        this.status = status;
+    }
+
     @Override
     public String toString() {
         return "TrabajadorModel{" +
@@ -89,6 +100,7 @@ public class TrabajadorModel {
                 ", apellidoMaterno='" + apellidoMaterno + '\'' +
                 ", direccion='" + direccion + '\'' +
                 ", empresaUid='" + empresaUid + '\'' +
+                ", status=" + status +
                 '}';
     }
 }
