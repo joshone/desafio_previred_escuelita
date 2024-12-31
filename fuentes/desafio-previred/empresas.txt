@@ -1,0 +1,39 @@
+76.123.456-0
+
+    Razón Social: Constructora ABC S.A.
+
+81.234.567-2
+
+    Razón Social: AgroIndustrial SpA
+
+76.654.321-9
+
+    Razón Social: Transportes Chile Limitada
+
+78.012.345-1
+
+    Razón Social: Servicios Integrales Sur S.A.
+
+76.555.444-6
+
+    Razón Social: Comercial del Pacífico Ltda.
+
+79.876.543-4
+
+    Razón Social: Maderas Chile S.A.
+
+80.101.112-8
+
+    Razón Social: FerroMetal SpA
+
+82.123.455-7
+
+    Razón Social: Alimentos del Sur S.P.A.
+
+73.001.119-9
+
+    Razón Social: Logística Global S.A.
+
+88.765.432-8
+
+    Razón Social: Seguros Nacionales Limitada
