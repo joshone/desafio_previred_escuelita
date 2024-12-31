@@ -64,9 +64,9 @@ public class EmpresaServiceImpl implements EmpresaService {
     }
 
     @Override
-    public EmpresaModel findEmpresa(String empresaId) throws EmpresaNotFoundException {
+    public EmpresaModel findEmpresa(String uid) throws EmpresaNotFoundException {
 
-        EmpresaEntity empresaEntity = empresaRepository.findByEmpresaId(empresaId);
+        EmpresaEntity empresaEntity = empresaRepository.findByUid(UUID.fromString(uid));
         if(empresaEntity == null) {
             throw new EmpresaNotFoundException("Empresa no encontrado");
         }

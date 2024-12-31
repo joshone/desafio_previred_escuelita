@@ -6,6 +6,7 @@ import cl.previred.desafio.exception.EmpresaAlreadyExistException;
 import cl.previred.desafio.exception.EmpresaNotFoundException;
 import cl.previred.desafio.model.EmpresaModel;
 import cl.previred.desafio.service.EmpresaService;
+import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -21,6 +22,8 @@ public class EmpresaController {
     @Autowired
     private EmpresaService empresaService;
 
+    @Operation(summary = "Obtener lista de empresas",
+            description = "Devuelve todas las empresas registradas en el sistema.")
     @GetMapping(value = "/all", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.OK)
     public BaseResponseDto<List<EmpresaModel>> listEmpresa() {
@@ -30,6 +33,7 @@ public class EmpresaController {
                 empresaService.getAllEmpresas());
     }
 
+    @Operation(summary = "Crear una nueva empresa")
     @PostMapping(value = "/create", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.CREATED)
     public BaseResponseDto<EmpresaModel> createEmpresa(@RequestBody EmpresaModel empresaModel) throws EmpresaAlreadyExistException {
@@ -38,12 +42,13 @@ public class EmpresaController {
                 empresaService.createEmpresa(empresaModel));
     }
 
+    @Operation(summary = "Busca una empresa con su UID")
     @GetMapping(value = "/{empresaId}", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.OK)
-    public BaseResponseDto<EmpresaModel> findEmpresa(@PathVariable String empresaId) throws EmpresaNotFoundException {
+    public BaseResponseDto<EmpresaModel> findEmpresa(@PathVariable String uid) throws EmpresaNotFoundException {
 
         return new BaseResponseDto<>(ResultCodeDto.SUCCESS,
                 "Servicio ejecutado correctamente",
-                empresaService.findEmpresa(empresaId));
+                empresaService.findEmpresa(uid));
     }
 }
